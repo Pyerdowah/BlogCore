@@ -1,0 +1,14 @@
+﻿Posts:
+  test-post:
+    Id: 1
+    Author: test
+    Content: test, test, test...
+  post2:
+    Id: 2
+    Author: me
+    Content: some content
+Comments:
+  comment1:
+    Id: 1
+    PostId: 1
+    Content: komentarz 1
