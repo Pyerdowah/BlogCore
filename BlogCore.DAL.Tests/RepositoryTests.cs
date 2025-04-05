@@ -178,7 +178,6 @@ namespace Blog.DAL.Tests
             // arrange
             var repository = new BlogRepository(_connectionString);
             repository.ClearDb();
-
             BaseFixtureSetUp();
             BaseSetUp();
 
