@@ -171,5 +171,35 @@ namespace Blog.DAL.Tests
             // assert
             CollectionAssert.AreEqual(commentsPost3, retirevedComments);
         }
+
+        [TestMethod]
+        public void GetSelectedPostCommentsList2()
+        {
+            // arrange
+            var repository = new BlogRepository(_connectionString);
+            repository.ClearDb();
+
+            BaseFixtureSetUp();
+            BaseSetUp();
+
+            var post3 = new Post { Id = 3, Author = "author", Content = "content" };
+            var com2 = new Comment { Id = 2, PostId = 1, Content = "komentarz 2" };
+            var com3 = new Comment { Id = 3, PostId = 3, Content = "komentarz 3" };
+            var com4 = new Comment { Id = 4, PostId = 3, Content = "komentarz 4" };
+            repository.AddPost(post3);
+            repository.AddComment(com2);
+            repository.AddComment(com3);
+            repository.AddComment(com4);
+
+            List<Comment> commentsPost3 = new List<Comment>();
+            commentsPost3.Add(com3);
+            commentsPost3.Add(com4);
+
+            // act          
+            List<Comment> retirevedComments = (List<Comment>)repository.GetCommentsByPost(post3);
+
+            // assert
+            CollectionAssert.AreEqual(commentsPost3, retirevedComments);
+        }
     }
 }
